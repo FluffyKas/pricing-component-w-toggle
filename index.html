@@ -14,10 +14,18 @@
 
   <header>
     <h1>Our Pricing</h1>
-    <label for="annually">Annually</label>
-    <input name="payment-frequency" value="annually" type="radio">
-    <label for="monthly">Monthly</label>
-    <input name="payment-frequency" value="monthly" type="radio">
+    <fieldset class="radio-switch">
+      <legend>
+        Our Pricing
+      </legend>
+
+      <input type="radio" name="plan-switch" id="monthly">
+      <label for="monthly">Monthly</label>
+    
+      <input type="radio" name="plan-switch" id="annually">
+      <label for="annually">Annually</label>
+
+    </fieldset>
   </header>
 
   <main>
@@ -60,6 +68,8 @@
   <!-- &dollar;249.99 -->
 
   <!-- &dollar;399.99 -->
+
+  <script src="index.js"></script>
 
 </body>
 </html>
