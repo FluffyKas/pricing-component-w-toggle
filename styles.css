@@ -101,9 +101,8 @@ h1 {
   background: #fff;
   border-radius: 100%;
   position: absolute;
-  top: .2rem;
-  right: .6rem;
-  /* right: -.075em; */
+  top: .15rem;
+  right: .7rem;
   transform: translateX(0em);
   transition: all .2s ease-in-out;
   width: 1.6rem;
@@ -128,7 +127,7 @@ h1 {
 }
 
 .radio-switch input:first-of-type:checked ~ label:first-of-type:before {
-  transform: translateX(-1.6em);
+  transform: translateX(-1.5em);
 }
 
 /* Move the 2nd label to have a lower z-index, so when that
@@ -144,13 +143,15 @@ h1 {
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
-  width: min(90%, 50rem);
+  width: min(87.5%, 50rem);
+  margin-bottom: 4rem;
 }
 
 .plan-card {
-  border-radius: 5px;
-  box-shadow: 0 2px 16px 0 rgba(146, 146, 146, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px 0 hsla(0, 0%, 57%, 0.2);
   padding: 2rem;
   text-align: center;
 }
@@ -164,33 +165,42 @@ main {
 .plan-btn {
   all: unset;
   box-sizing: border-box;
-  background: linear-gradient(90deg, rgba(163, 168, 240, 1) 33%, rgba(105, 111, 221, 1) 82%);
+  background: linear-gradient(120deg, hsl(236, 72%, 79%) 5%, hsl(237, 63%, 64%) 82%);
+  border: 1px solid white;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   font-size: .8rem;
   letter-spacing: 2px;
-  padding: 1rem;
+  padding: .95rem;
   text-transform: uppercase;
   width: 100%;
+  transition: all .2s ease;
+}
+
+.plan-btn:hover {
+  background: white;
+  border: 1px solid hsl(237, 63%, 64%);
+  color: hsl(237, 63%, 64%);
 }
 
 .plan-title {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .price {
   color: var(--clr-gray-blue-900);
-  font-size: 4rem;
+  font-size: 4.4rem;
 }
 
 .plan-details {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.2rem;
+  font-size: .9rem;
   margin: 1.5rem 0;
-  padding: 1rem 0;
+  padding: 1.4rem 0;
 }
 
 .plan-details li::before {
@@ -221,13 +231,19 @@ main {
 /* HIGHLIGHTED PLAN CARD STYLES */
 
 .plan-highlighted {
-  background: linear-gradient(90deg, rgba(163, 168, 240, 1) 33%, rgba(105, 111, 221, 1) 82%);
+  background: linear-gradient(130deg, hsl(236, 72%, 79%) 15%, hsl(237, 63%, 64%) 82%);
   color: white;
 }
 
 .btn-highlighted {
   background: white;
   color: hsl(237, 63%, 64%);
+}
+
+.btn-highlighted:hover {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
 }
 
 .plan-highlighted .price {
