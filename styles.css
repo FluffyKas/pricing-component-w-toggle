@@ -154,6 +154,8 @@ main {
   box-shadow: 0 2px 16px 0 hsla(0, 0%, 57%, 0.2);
   padding: 2rem;
   text-align: center;
+  width: min(90%, 35rem);
+  margin: 0 auto;
 }
 
 /* NORMAL PLAN CARD STYLES */
@@ -267,8 +269,38 @@ main {
 
 @media (min-width:56rem) {
 
+  body {
+    background: url(images/bg-top.svg), var(--clr-gray-blue-100);
+    background-position: 50vw top;
+    background-repeat: no-repeat;
+    color: var(--clr-gray-blue-600);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+  body::after {
+    content: url('images/bg-bottom.svg');
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  h1 {
+    padding: 0 0 2.5rem 0;
+  }
+
+  .radio-switch {
+    margin-bottom: 0;
+  }
+
   main {
     flex-direction: row;
     gap: 0;
+  }
+
+  .plan-highlighted {
+    transform: scale(1.075);
   }
 }
