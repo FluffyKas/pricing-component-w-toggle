@@ -8,9 +8,10 @@
   --clr-gray-blue-300: hsl(234, 14%, 74%);
   --clr-gray-blue-600: hsl(233, 13%, 49%);
   --clr-gray-blue-900: hsl(232, 13%, 33%);
-}
 
-/* - Linear Gradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%) */
+  --clr-gradient-light: hsl(236, 72%, 79%);
+  --clr-gradient-dark: hsl(237, 63%, 64%);
+}
 
 * {
   box-sizing: border-box;
@@ -95,11 +96,11 @@ h1 {
 }
 
 .radio-switch:focus-within label:first-of-type:after {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px hsl(237, 63%, 64%);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--clr-gradient-dark);
 }
 
 .radio-switch.focus-within label:first-of-type:after {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px hsl(237, 63%, 64%);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--clr-gradient-dark);
 }
 
 .radio-switch label:first-of-type:before,
@@ -113,7 +114,7 @@ h1 {
 }
 
 .radio-switch label:first-of-type:before {
-  background: #fff;
+  background: white;
   border-radius: 100%;
   position: absolute;
   top: .175rem;
@@ -126,7 +127,7 @@ h1 {
 }
 
 .radio-switch label:first-of-type:after {
-  background: linear-gradient(90deg, rgba(163, 168, 240, 1) 33%, rgba(105, 111, 221, 1) 82%);
+  background: linear-gradient(90deg, var(--clr-gradient-light) 33%, var(--clr-gradient-dark));
   border-radius: 1em;
   margin: 0 1em;
   transition: all .2s ease-in-out;
@@ -138,7 +139,7 @@ h1 {
   checked state of the first radio button
 */
 .radio-switch input:first-of-type:checked ~ label:first-of-type:after {
-  background: linear-gradient(90deg, rgba(163, 168, 240, 1) 33%, rgba(105, 111, 221, 1) 82%);
+  background: linear-gradient(90deg, var(--clr-gradient-light) 33%, var(--clr-gradient-dark) 82%);
 }
 
 .radio-switch input:first-of-type:checked ~ label:first-of-type:before {
@@ -182,7 +183,7 @@ main {
 .plan-btn {
   all: unset;
   box-sizing: border-box;
-  background: linear-gradient(120deg, hsl(236, 72%, 79%) 5%, hsl(237, 63%, 64%) 82%);
+  background: linear-gradient(120deg, var(--clr-gradient-light) 5%, var(--clr-gradient-dark) 82%);
   border: 1px solid white;
   border-radius: 8px;
   color: white;
@@ -197,8 +198,25 @@ main {
 
 .plan-btn:hover {
   background: white;
-  border: 1px solid hsl(237, 63%, 64%);
-  color: hsl(237, 63%, 64%);
+  border: 1px solid var(--clr-gradient-dark);
+  color: var(--clr-gradient-dark);
+}
+
+.plan-btn:focus {
+  /* Provide a fallback style for browsers
+     that don't support :focus-visible */
+  outline: 3px dashed var(--clr-gradient-dark);
+}
+
+.plan-btn:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+     that do s  upport :focus-visible */
+  outline: none;
+}
+
+.plan-btn:focus-visible {
+  /* for browsers that do support :focus-visible */
+  outline: 3px dashed var(--clr-gradient-dark);
 }
 
 .plan-title {
@@ -248,13 +266,13 @@ main {
 /* HIGHLIGHTED PLAN CARD STYLES */
 
 .plan-highlighted {
-  background: linear-gradient(130deg, hsl(236, 72%, 79%) 15%, hsl(237, 63%, 64%) 82%);
+  background: linear-gradient(130deg, var(--clr-gradient-light) 15%, var(--clr-gradient-dark) 82%);
   color: white;
 }
 
 .btn-highlighted {
   background: white;
-  color: hsl(237, 63%, 64%);
+  color: var(--clr-gradient-dark);
 }
 
 .btn-highlighted:hover {
@@ -262,6 +280,24 @@ main {
   border: 1px solid white;
   color: white;
 }
+
+.btn-highlighted:focus {
+  /* Provide a fallback style for browsers
+     that don't support :focus-visible */
+  outline: 3px dashed white;
+}
+
+.btn-highlighted:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+     that do s  upport :focus-visible */
+  outline: none;
+}
+
+.btn-highlighted:focus-visible {
+  /* for browsers that do support :focus-visible */
+  outline: 3px dashed white;
+}
+
 
 .plan-highlighted .price {
   color: white;
@@ -282,7 +318,7 @@ main {
 
 /* MEDIA QUERIES */
 
-@media (min-width:56rem) {
+@media (min-width: 69rem) {
 
   body {
     background: var(--clr-gray-blue-100);
@@ -315,6 +351,7 @@ main {
   main {
     flex-direction: row;
     gap: 0;
+    width: 68rem;
   }
 
   .plan-highlighted {
@@ -322,6 +359,6 @@ main {
   }
 
   .plan-normal {
-    padding-inline: 4.5rem;
-  }
+    padding-inline: 2.5rem;
+  } 
 }
